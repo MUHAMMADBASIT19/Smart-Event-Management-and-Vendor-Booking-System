@@ -211,17 +211,6 @@ This creates:
 - ✅ 2 admin user accounts
 - ✅ Sample events
 
-### Default Login Credentials
-
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | `ammar@gmail.com` | `123456` |
-| Admin | `ahmed@gmail.com` | `123456` |
-
-> **Tip:** The first user to sign up on an empty database automatically gets admin privileges.
-
----
-
 ## API Endpoints
 
 ### Events
