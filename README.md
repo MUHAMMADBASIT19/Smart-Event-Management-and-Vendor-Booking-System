@@ -1,4 +1,4 @@
-# 🎉 Event Organization System — FYP
+# 🎉 Smart Event Management and Vendor Booking System
 
 A full-stack web platform for organizing and booking events, connecting **customers**, **vendors**, and **admins** in one place.
 
