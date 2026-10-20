@@ -1,0 +1,330 @@
+==============================================================
+    EVENT ORGANIZATION SYSTEM - SETUP GUIDE FOR BEGINNERS
+==============================================================
+This guide will help you run this project on your computer
+step by step. No technical experience required!
+--------------------------------------------------------------
+
+
+WHAT YOU WILL SEE WHEN IT'S WORKING
+=====================================
+  - Customer website  -->  http://localhost:3000
+  - Vendor website    -->  http://localhost:3001
+  - Backend server    -->  http://localhost:5000
+
+
+--------------------------------------------------------------
+PART 1: INSTALL THE REQUIRED TOOLS (Do this once only)
+--------------------------------------------------------------
+
+You need to install Node.js before anything else.
+Node.js is a program that runs the backend server.
+
+STEP 1: Download and install Node.js
+  1. Open your browser and go to:
+        https://nodejs.org/
+  2. Click the big green button that says "LTS" (recommended)
+  3. Run the downloaded file and click Next > Next > Install
+  4. After it finishes, RESTART your computer
+
+STEP 2: Confirm Node.js is installed
+  1. Press  Windows Key + R
+  2. Type   cmd   and press Enter
+  3. In the black window, type this and press Enter:
+        node --version
+  4. You should see something like:  v20.x.x
+     If you see a version number, you are ready!
+
+
+--------------------------------------------------------------
+PART 2: OPEN THE PROJECT FOLDER
+--------------------------------------------------------------
+
+STEP 3: Find the project on your computer
+  The project folder is called "FYP-main"
+  It should be on your Desktop or wherever you saved it.
+
+STEP 4: Open a Command Prompt inside the project folder
+  METHOD 1 (easiest on Windows):
+    1. Open the FYP-main folder in File Explorer
+    2. Click on the address bar at the top (where the folder
+       path is shown, e.g. "Desktop > FYP-main")
+    3. Type   cmd   and press Enter
+    A black window (Command Prompt) will open already
+    inside the correct folder.
+
+  METHOD 2 (alternative):
+    1. Press Windows Key + R
+    2. Type   cmd   and press Enter
+    3. Type: cd Desktop\FYP-main   and press Enter
+
+
+--------------------------------------------------------------
+PART 3: CREATE THE CONFIGURATION FILE
+--------------------------------------------------------------
+
+The backend needs a small settings file called ".env"
+
+STEP 5: Create the .env file
+  1. Open the "backend" folder inside FYP-main in File Explorer
+  2. Right-click on an empty area inside backend folder
+  3. Click "New" > "Text Document"
+  4. Name it exactly:   .env
+     (Windows may warn you about changing the extension,
+      click Yes)
+  5. Right-click the .env file > Open With > Notepad
+  6. Copy and paste the following 3 lines into Notepad:
+
+        PORT=5000
+        JWT_SECRET=myverysecretkey123changethislater
+        PAYPAL_CLIENT_ID=sb
+
+  7. Save the file (Ctrl + S) and close Notepad
+
+  NOTE: If Windows does not let you name it ".env" because
+  it has no name before the dot, use this workaround:
+    - Open Notepad first
+    - Type the 3 lines above
+    - Click File > Save As
+    - Navigate to the "backend" folder
+    - In "File name" box type:   .env
+    - In "Save as type" choose:  All Files
+    - Click Save
+
+
+--------------------------------------------------------------
+PART 4: INSTALL PROJECT DEPENDENCIES
+--------------------------------------------------------------
+
+"Dependencies" are extra code packages the project needs.
+We install them using a tool called "npm" (Node Package Manager)
+which was installed with Node.js automatically.
+
+You need to open ONE Command Prompt window for each step.
+Remember: always open CMD inside the FYP-main folder first!
+
+STEP 6: Install backend packages
+  In your Command Prompt (inside FYP-main), type each line
+  and press Enter after each one. Wait for it to finish
+  before typing the next:
+
+        cd backend
+        npm install
+        cd ..
+
+  You will see lots of text scrolling. That is normal.
+  Wait until you see the cursor blinking again.
+
+STEP 7: Install frontend packages
+  In the same Command Prompt, type:
+
+        cd frontend
+        npm install --legacy-peer-deps
+        cd ..
+
+  This may take 2-5 minutes. Please be patient.
+
+STEP 8: Install vendor portal packages
+  In the same Command Prompt, type:
+
+        cd vendor
+        npm install --legacy-peer-deps
+        cd ..
+
+  Again, please wait for it to finish completely.
+
+  >>> You only need to do PART 4 ONE TIME. <<<
+  >>> Next time you run the project, skip to PART 5. <<<
+
+
+--------------------------------------------------------------
+PART 5: RUNNING THE PROJECT
+--------------------------------------------------------------
+
+You need to open 3 separate Command Prompt windows.
+Each one runs a different part of the project.
+
+--- WINDOW 1: Start the Backend (Server) ---
+
+  1. Open a new Command Prompt inside the FYP-main folder
+     (see Step 4 above for how to do this)
+  2. Type the following and press Enter:
+
+        cd backend
+        npm start
+
+  3. Wait until you see this message:
+        serve at http://localhost:5000
+        Database synced successfully
+
+  IMPORTANT: Do NOT close this window. Leave it running!
+
+
+--- WINDOW 2: Start the Frontend (Customer Website) ---
+
+  1. Open ANOTHER new Command Prompt inside FYP-main
+  2. Type the following and press Enter:
+
+        cd frontend
+        npm start
+
+  3. Wait about 30-60 seconds. Your browser will open
+     automatically at:  http://localhost:3000
+     
+  IMPORTANT: Do NOT close this window either!
+
+
+--- WINDOW 3: Start the Vendor Portal (Optional) ---
+
+  1. Open a THIRD new Command Prompt inside FYP-main
+  2. Type the following and press Enter:
+
+        cd vendor
+        npm start
+
+  3. Wait for it to compile. It runs at:
+        http://localhost:3001
+
+  IMPORTANT: Do NOT close this window!
+
+
+--------------------------------------------------------------
+PART 6: LOAD DEMO DATA (First time only)
+--------------------------------------------------------------
+
+STEP 9: Load sample events and create admin accounts
+  1. Make sure the backend (Window 1) is running
+  2. Open your browser (Chrome, Edge, etc.)
+  3. Go to this address:
+        http://localhost:5000/api/seed
+  4. You should see some text on screen confirming success
+
+After seeding, you can log in with these accounts:
+
+  ADMIN LOGIN 1:
+    Email:    ammar@gmail.com
+    Password: 123456
+
+  ADMIN LOGIN 2:
+    Email:    ahmed@gmail.com
+    Password: 123456
+
+
+--------------------------------------------------------------
+PART 7: USING THE SYSTEM
+--------------------------------------------------------------
+
+CUSTOMER WEBSITE (localhost:3000):
+  - Create an account or log in
+  - Browse and search events
+  - Book events and pay
+  - Leave reviews
+  - Message vendors
+
+VENDOR WEBSITE (localhost:3001):
+  - Register as a vendor and wait for admin approval
+  - List your events with photos and pricing
+  - Manage bookings from customers
+  - Respond to bids
+
+ADMIN (login at localhost:3000 with admin credentials):
+  - View dashboard with sales analytics
+  - Approve or reject vendors
+  - Manage all events and users
+
+
+--------------------------------------------------------------
+PART 8: STOPPING THE PROJECT
+--------------------------------------------------------------
+
+To stop any running part:
+  1. Click on that Command Prompt window
+  2. Press  Ctrl + C
+  3. Type  Y  and press Enter if asked
+
+To stop everything at once: just close all 3 CMD windows.
+
+
+--------------------------------------------------------------
+COMMON PROBLEMS AND SOLUTIONS
+--------------------------------------------------------------
+
+PROBLEM: "npm is not recognized as a command"
+SOLUTION: Node.js was not installed correctly.
+  - Go back to Part 1, Step 1 and reinstall Node.js
+  - Restart your computer after installing
+
+--------------------------------------------------------------
+
+PROBLEM: "Port 5000 already in use" or "Port 3000 in use"
+SOLUTION: Something else is using that port.
+  1. Press Windows Key + R, type   cmd   press Enter
+  2. For port 5000, type:
+        netstat -ano | findstr :5000
+  3. Note the number in the last column (the PID)
+  4. Type:   taskkill /PID <that number> /F
+  5. Try running the backend again
+
+--------------------------------------------------------------
+
+PROBLEM: Frontend shows "Proxy Error" or blank page
+SOLUTION: Make sure the backend is running FIRST.
+  - Start Window 1 (backend) and wait for "Database synced"
+  - Then start Window 2 (frontend)
+
+--------------------------------------------------------------
+
+PROBLEM: "Cannot find module" errors
+SOLUTION: Dependencies might be missing or corrupted.
+  1. Close all CMD windows
+  2. Delete the "node_modules" folder inside the affected
+     subfolder (backend, frontend, or vendor)
+  3. Follow Part 4 again for that folder
+
+--------------------------------------------------------------
+
+PROBLEM: Database shows old/wrong data
+SOLUTION: Reset the database.
+  1. Stop the backend (Ctrl+C in Window 1)
+  2. Open the "backend" folder in File Explorer
+  3. Delete the file called "database.sqlite"
+  4. Start the backend again (npm start)
+  5. Re-seed data: http://localhost:5000/api/seed
+
+--------------------------------------------------------------
+
+PROBLEM: Images are not showing
+SOLUTION: The upload folder is created automatically.
+  If images still don't show after uploading, make sure
+  the backend is running on port 5000.
+
+--------------------------------------------------------------
+
+
+QUICK REFERENCE CARD
+======================================================
+Every time you want to run the project:
+
+  CMD Window 1 (Backend):
+    cd backend
+    npm start
+    --> Wait for: "serve at http://localhost:5000"
+
+  CMD Window 2 (Customer site):
+    cd frontend
+    npm start
+    --> Opens: http://localhost:3000
+
+  CMD Window 3 (Vendor site):
+    cd vendor
+    npm start
+    --> Opens: http://localhost:3001
+
+  Admin login:  ammar@gmail.com / 123456
+======================================================
+
+
+If you are still having trouble, ask your project supervisor
+or send a screenshot of the error message for help.
+
+Last updated: March 2026
